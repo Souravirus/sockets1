@@ -23,12 +23,18 @@ if(acfd==-1)
 {
 perror("accept");
 }
+FILE *fp;
+
 while(1)
 {
+fp = fopen("file.txt", "a");
 //printf("waiting for client\n");
 read(acfd,buffer,50);
 printf("MEENA :");
-fputs(buffer,stdout);
+puts(buffer);
+    fputs(buffer, fp);
+    int j = fclose(fp);
+
 
 //printf("MEENA:%s\n",ch);
 //printf("%s\n",ch);
